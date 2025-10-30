@@ -9,6 +9,11 @@ matriz_stock = [[0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0]]
+
+venta_insumos = [[0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0]]
         
 while True:
     print("Menú de opciones")
@@ -38,8 +43,8 @@ while True:
                     if centro == centros_logisticos[i]:
                         print("Centro válido")
 
-                print("INSUMOS: Guantes descartables, Mascarillas quirúrgicas," \
-                      " Jeringas, Alcohol en gel, Test rápidos")
+                        print("INSUMOS: Guantes descartables, Mascarillas quirúrgicas," \
+                            " Jeringas, Alcohol en gel, Test rápidos")
                                     
                 insumo = input("Elige un insumo: ")     
 
@@ -47,21 +52,53 @@ while True:
                     if insumo == insumos[i]:
                         print("Insumo válido")
 
-                cantidad = int(input("Ingresa la cantidad a cargar: "))
+                        cantidad = int(input("Ingresa la cantidad a cargar: "))
 
-                cargar_insumos(centro, insumo, cantidad, matriz_stock)
-                mostrar_matriz_stock(matriz_stock)
+                        cargar_insumos(centro, insumo, cantidad, matriz_stock)
+                        mostrar_matriz_stock(matriz_stock)
             case 2:
                 mostrar_centros_mas_10000_unidades_total(matriz_stock)
             case 3:
                 mostrar_insumos_mas_7000_unidades_stock_total(insumos,
                                                               matriz_stock)
             case 4:
-                pass
+                print("INSUMOS: Guantes descartables, Mascarillas quirúrgicas," \
+                      " Jeringas, Alcohol en gel, Test rápidos")
+                insumo = input("Elige un insumo: ")
+
+                for i in range(len(insumos)):
+                    if insumo == insumos[i]:
+                        print("Insumo válido")
+
+                        mostrar_centro_con_mayor_cant_insumos(centros_logisticos,
+                                                            insumo,
+                                                            matriz_stock)
             case 5:
-                pass
+                print("CENTROS: Buenos Aires, San Juan, Jujuy, Neuquén")
+
+                centro = input("Elige un centro: ")
+                for i in range(len(centros_logisticos)):
+                    if centro == centros_logisticos[i]:
+                        print("Centro válido")
+
+                        print("INSUMOS: Guantes descartables, Mascarillas quirúrgicas," \
+                            " Jeringas, Alcohol en gel, Test rápidos")
+                                            
+                        insumo = input("Elige un insumo: ")     
+
+                for i in range(len(insumos)):
+                    if insumo == insumos[i]:
+                        print("Insumo válido")
+
+                        cantidad = int(input("Ingresa la cantidad que vendiste: "))
+
+                        registrar_venta_de_insumos(venta_insumos,
+                                                centro,
+                                                insumo,
+                                                cantidad,
+                                                matriz_stock)
             case 6:
-                pass
+                informe_ventas_por_centro(venta_insumos)
             case 7:
                 pass
             case 8:
