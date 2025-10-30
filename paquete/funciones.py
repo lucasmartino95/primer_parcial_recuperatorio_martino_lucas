@@ -152,8 +152,9 @@ def registrar_venta_de_insumos(venta_insumos: list,
     mostrar_matriz_stock(matriz_stock)
 
 
-def informe_ventas_por_centro(venta_insumos: list) -> None:
+def informar_ventas_por_centro(venta_insumos: list) -> None:
 
+    # Falta ordenar de mayor a menor
 
     total_vendido_por_centro = [0, 0, 0, 0]
 
@@ -162,17 +163,7 @@ def informe_ventas_por_centro(venta_insumos: list) -> None:
             if venta_insumos[i][j] != 0:
                 total_vendido_por_centro[i] += (venta_insumos[i][j] * 500)
 
-    lista_ordenada = [0, 0, 0, 0]
-    
     for i in range(len(total_vendido_por_centro)):
-        if i == 0:
-            indice_maximo = i
-            lista_ordenada[i] = total_vendido_por_centro[indice_maximo]
-        else:
-            if lista_ordenada[indice_maximo] < total_vendido_por_centro[indice_maximo]:
-                lista_ordenada[indice_maximo] = i
+        print(total_vendido_por_centro[i], end=" ")
+    print()
 
-    print("CENTROS: Buenos Aires, San Juan, Jujuy, Neuquén")
-    print(lista_ordenada)
-        
-    

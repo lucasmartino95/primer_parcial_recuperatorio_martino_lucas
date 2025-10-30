@@ -98,7 +98,8 @@ while True:
                                                 cantidad,
                                                 matriz_stock)
             case 6:
-                informe_ventas_por_centro(venta_insumos)
+                print("CENTROS: Buenos Aires, San Juan, Jujuy, Neuquén")
+                informar_ventas_por_centro(venta_insumos)
             case 7:
                 pass
             case 8:
